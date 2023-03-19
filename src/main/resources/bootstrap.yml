@@ -1,0 +1,43 @@
+server:
+  port: 9288
+mybatis:
+  mapper-locations: classpath*:mapper/**/*.xml
+  type-aliases-package: com.example.demo.mapper
+  configuration:
+    call-setters-on-nulls: true
+
+spring:
+  application:
+    name: crm-test
+  cloud:
+    nacos:
+      discovery:
+        server-addr: dev-nacos.iguming.net:8848
+        namespace: 585c2892-3945-4061-af88-e077fc64f33b
+      config:
+        enabled: true
+        file-extension: yaml
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://121.41.200.135:3306/download_centert?serverTimezone=GMT%2B8&useSSL=true
+    username: root
+    password: GMadmins1318#
+  redis:
+    host: r-bp1zfs7iy7u7ydqz1ipd.redis.rds.aliyuncs.com
+    port: 6379
+    password: hiw4442#nwq
+    database: 6
+    pool:
+      max-active: 8
+      max-wait: -1ms
+      min-idle: 0
+      max-idle: 8
+    timeout: 50000ms
+
+
+
